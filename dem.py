@@ -72,7 +72,7 @@ if plot:
 
 #inputfile = 'rx_qpsk_30mbd_seq_0213.bin'
 #inputfile = 'rx_sin_20MHz.bin'
-inputfile = 'rx_10_10_25_25_0_4-15360-122880-.bin'
+inputfile = 'prova4.bin'
 #inputfile= 'rx_qpsk_30mbd_HG.bin'
 
 iq = np.fromfile(inputfile, dtype = np.dtype('<i2'))
@@ -109,17 +109,17 @@ samples_i = sig.resample_poly(i_filt, 4, 1)
 samples_q = sig.resample_poly(q_filt, 4, 1)
 
 
-si = samples_i[163::32]
-sq = samples_q[163::32]
+si = samples_i[154::32]
+sq = samples_q[154::32]
 
+"""
 for o in range(32):
     plt.plot(samples_i[o+150::32], samples_q[o+150::32], '.')
+"""
 
 
+plt.plot(si, sq, '.')
 plt.show()
-
-#plt.plot(si, sq, '.')
-#plt.show()
 
 max_i = np.max(si)
 max_q = np.max(sq)
